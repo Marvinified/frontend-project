@@ -3,20 +3,21 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
-import Chat from './Chat';
-import Dashboard from './Dashboard';
-
-const DASHBOARD_ROUTE = '/dashboard';
-const CHAT_ROUTE = '/chat/:userID';
+import routes from './routes';
 
 const App: React.FC = () => (
-  <Router>
-    <Switch>
-      <Route path={DASHBOARD_ROUTE} component={Dashboard} />
-      <Route path={CHAT_ROUTE} component={Chat} />
-      <Redirect to={DASHBOARD_ROUTE} />
-    </Switch>
-  </Router>
+  <div className="app">
+    <Router>
+      <Switch>
+        {routes.map(({ path, component: Component }) => (
+          <Route key={path} exact path={path}>
+            <Component />
+          </Route>
+        ))}
+        <Redirect to="/chats" />
+      </Switch>
+    </Router>
+  </div>
 );
 
 export default App;
