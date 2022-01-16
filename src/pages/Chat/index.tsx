@@ -7,7 +7,7 @@ import Empty from 'src/components/Empty';
 import Messages from 'src/containers/Messages';
 import useChat from 'src/state/chat/useChat';
 
-import SendMessage from '../SendMessage';
+import SendMessage from '../../containers/SendMessage';
 
 const Chat: React.FC = () => {
   const history = useHistory();
@@ -58,8 +58,4 @@ const Chat: React.FC = () => {
   );
 };
 
-// const custom = {
-//   backButton: { backgroundColor: '#fff', color: '#505050' },
-//   deleteButton: { backgroundColor: '#ff7373' },
-// };
 export default Chat;

@@ -6,7 +6,7 @@ import ChatList from 'src/components/ChatList';
 import { ChatListItem } from 'src/state/chat/types';
 import useChat from 'src/state/chat/useChat';
 
-const Dashboard: React.FC = () => {
+const Home: React.FC = () => {
   const { userId } = useParams<{ userId: string }>();
   const {
     state: { chats: chatsState = {} },
@@ -24,4 +24,4 @@ const Dashboard: React.FC = () => {
   return <ChatList chats={chats} userId={userId} />;
 };
 
-export default Dashboard;
+export default Home;

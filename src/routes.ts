@@ -1,5 +1,5 @@
-import Chat from './containers/Chat';
-import Dashboard from './pages/Dashboard';
+import Chat from './pages/Chat';
+import Home from './pages/Home';
 
 export type Route = {
   path: string;
@@ -9,7 +9,7 @@ export type Route = {
 const routes: Route[] = [
   {
     path: '/chats',
-    component: Dashboard,
+    component: Home,
   },
   {
     path: '/chats/:userId?',

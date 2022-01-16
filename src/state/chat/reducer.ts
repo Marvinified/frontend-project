@@ -14,9 +14,6 @@ export const initialState: ChatsStateType = { chats: {}, error: '' };
 const reducer = (state: ChatsStateType = initialState, action: Action): ChatsStateType => {
   const current: ChatsStateType = state;
 
-  // eslint-disable-next-line no-console
-  console.log('payload', action);
-
   switch (action.type) {
     case INIT:
       return action.payload.chats

@@ -53,8 +53,11 @@ const AudioHandler: React.FC<AudioHandleProps> = ({ messages = [], id }) => {
       };
     }
   }, [audioQueue]);
-  // eslint-disable-next-line jsx-a11y/media-has-caption
-  return <audio ref={audioRef} autoPlay={true} />;
+  return (
+    <audio ref={audioRef} autoPlay={true}>
+      <track kind="captions" />
+    </audio>
+  );
 };
 
 export default AudioHandler;
