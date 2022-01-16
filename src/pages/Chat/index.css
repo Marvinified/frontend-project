@@ -12,7 +12,9 @@
 }
 
 .chats-messages .delete-btn {
-  background-color: #ff7373;
+  background-color: #fafafa;
+  box-shadow: 0 0 0 0 #fafafa;
+  color: #ff7373;
 }
 
 .chats-messages .back-btn {
