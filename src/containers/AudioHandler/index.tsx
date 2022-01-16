@@ -43,15 +43,16 @@ const AudioHandler: React.FC<AudioHandleProps> = ({ messages = [], id }) => {
 
     const src = audioQueue[0];
     if (src && audioRef.current) {
-      setPlaying(true);
       audioRef.current.src = src;
       audioRef.current.autoplay = true;
       audioRef.current.onended = () => {
         setPlaying(false);
-        setAudioQueue(audioQueue.slice(1));
       };
+
+      setPlaying(true);
+      setAudioQueue(audioQueue.slice(1));
     }
-  }, [audioQueue]);
+  }, [audioQueue, playing]);
   return (
     <audio ref={audioRef} autoPlay={true}>
       <track kind="captions" />
