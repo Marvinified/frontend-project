@@ -1,0 +1,76 @@
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  height: 85vh;
+}
+
+.chats-list {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  background-color: #fafafa;
+  box-shadow: 0 0 1em 0.2em rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  min-width: 350px;
+  cursor: pointer;
+}
+
+.chats-list > .item {
+  display: flex;
+  align-items: center;
+  padding: 0 1em;
+  border-radius: 1rem;
+  text-decoration: none;
+}
+.chats-list > .item:hover {
+  background-color: #f1f1f1;
+}
+
+.chats-list > .item > .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 100%;
+  margin-left: 1em;
+  width: 80%;
+  border-bottom: 0.5px solid #c9c9c9;
+  padding: 1em 0;
+}
+
+.chats-list .details > span {
+  font-size: 0.8em;
+  color: #999;
+  font-weight: 400;
+}
+
+.chats-list .details > h5 {
+  margin: 0.3em 0;
+  font-weight: 600;
+  color: #333;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  background-color: #dc875d;
+  color: #eee;
+  border-radius: 50%;
+}
+
+.chats-messages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+  background-color: #fafafa;
+  box-shadow: 0 0 1em 0.2em rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  min-width: 350px;
+}

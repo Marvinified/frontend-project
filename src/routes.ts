@@ -1,4 +1,4 @@
-import { Chat, Chats } from './pages';
+import Dashboard from './pages/Dashboard';
 
 export type Route = {
   path: string;
@@ -7,12 +7,8 @@ export type Route = {
 
 const routes: Route[] = [
   {
-    path: '/chats',
-    component: Chats,
-  },
-  {
-    path: '/chat/:userID',
-    component: Chat,
+    path: '/chats/:userID?',
+    component: Dashboard,
   },
 ];
 
