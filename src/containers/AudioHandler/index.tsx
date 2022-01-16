@@ -10,21 +10,16 @@ type AudioHandleProps = {
 
 const AudioHandler: React.FC<AudioHandleProps> = ({ messages = [], id }) => {
   const [currentId, setCurrentId] = React.useState('');
+  const [playing, setPlaying] = React.useState(false);
   const [audioQueue, setAudioQueue] = React.useState<string[]>([]);
   const [queueIndex, setQueueIndex] = React.useState(messages.length);
   const audioRef = React.useRef<HTMLAudioElement>(null);
 
   React.useEffect(() => {
-    return () => {
+    if (id !== currentId) {
       if (audioRef.current) {
         audioRef.current.pause();
       }
-    };
-  }, []);
-
-  React.useEffect(() => {
-    if (id !== currentId) {
-      if (audioRef.current) audioRef.current.pause();
       setQueueIndex(messages.length);
       setCurrentId(id);
       return;
@@ -44,11 +39,15 @@ const AudioHandler: React.FC<AudioHandleProps> = ({ messages = [], id }) => {
   }, [messages, queueIndex, id]);
 
   React.useEffect(() => {
+    if (playing) return;
+
     const src = audioQueue[0];
     if (src && audioRef.current) {
+      setPlaying(true);
       audioRef.current.src = src;
       audioRef.current.autoplay = true;
       audioRef.current.onended = () => {
+        setPlaying(false);
         setAudioQueue(audioQueue.slice(1));
       };
     }
