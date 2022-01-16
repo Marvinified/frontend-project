@@ -12,14 +12,19 @@ export const SET_LOADING = 'SET_LOADING';
 export const initialState: ChatsStateType = { chats: {}, error: '' };
 
 const reducer = (state: ChatsStateType = initialState, action: Action): ChatsStateType => {
-  const current: ChatsStateType = {
-    ...state,
-    error: '',
-  };
+  const current: ChatsStateType = state;
+
+  // eslint-disable-next-line no-console
+  console.log('payload', action);
 
   switch (action.type) {
     case INIT:
-      return action.payload.chats || current;
+      return action.payload.chats
+        ? {
+            error: '',
+            chats: action.payload.chats,
+          }
+        : current;
     case SET_LOADING:
       return {
         ...current,
@@ -37,6 +42,7 @@ const reducer = (state: ChatsStateType = initialState, action: Action): ChatsSta
       }
       return {
         ...current,
+        error: '',
         chats: {
           ...current.chats,
           [action.payload.id]: {
@@ -62,6 +68,7 @@ const reducer = (state: ChatsStateType = initialState, action: Action): ChatsSta
       }
       return {
         ...current,
+        error: '',
         chats: {
           ...current.chats,
           [action.payload.id]: {
@@ -82,6 +89,7 @@ const reducer = (state: ChatsStateType = initialState, action: Action): ChatsSta
 
       return {
         ...current,
+        error: '',
         chats: {
           ...current.chats,
           [action.payload.id]: {
@@ -96,10 +104,9 @@ const reducer = (state: ChatsStateType = initialState, action: Action): ChatsSta
       if (!current.chats[action.payload.id]) return current;
       const { chats } = current;
       delete chats[action.payload.id];
-      // eslint-disable-next-line no-console
-      console.log('delete session', chats);
       return {
         ...current,
+        error: '',
         chats: { ...chats },
       };
     }
@@ -108,6 +115,7 @@ const reducer = (state: ChatsStateType = initialState, action: Action): ChatsSta
       if (!current.chats[action.payload.id]) return current;
       return {
         ...current,
+        error: '',
         chats: {
           ...current.chats,
           [action.payload.id]: {

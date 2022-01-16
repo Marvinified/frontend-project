@@ -4,13 +4,12 @@ import { useHistory } from 'react-router-dom';
 import actions from './actions';
 import ChatContext from './context';
 import reducer, { initialState } from './reducer';
-import { Action, ChatContextType, ChatsStateType } from './types';
+import { Action, ChatContextType, ChatsStateType, ChatsType } from './types';
 
 type ReducerType = (state: ChatsStateType, action: Action) => ChatsStateType;
 const cache = (fun: ReducerType) => (state: ChatsStateType, action: Action) => {
   const cachable = fun(state, action);
-  JSON.stringify(cachable);
-  localStorage.setItem('chats', JSON.stringify(cachable));
+  localStorage.setItem('chats', JSON.stringify(cachable.chats));
   return cachable;
 };
 
@@ -21,7 +20,7 @@ const ChatProvider: React.FC = ({ children }) => {
   React.useEffect(() => {
     const cache = localStorage.getItem('chats');
     if (cache) {
-      const chats: ChatsStateType = JSON.parse(cache);
+      const chats: ChatsType = JSON.parse(cache);
       if (chats) {
         dispatch({
           type: 'INIT',

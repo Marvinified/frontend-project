@@ -32,7 +32,7 @@ export type PayloadType = {
   name?: string;
   messages?: Array<MessageType>;
   message?: MessageType;
-  chats?: ChatsStateType;
+  chats?: ChatsType;
   error?: string;
 };
 

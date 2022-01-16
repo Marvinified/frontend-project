@@ -3,7 +3,7 @@ import './index.css';
 import React from 'react';
 import { Redirect, useHistory, useParams } from 'react-router';
 import Button from 'src/components/Button';
-import Messages from 'src/components/Messages';
+import Messages from 'src/containers/AudioHandler';
 import useChat from 'src/state/chat/useChat';
 
 import SendMessage from '../SendMessage';
@@ -42,7 +42,7 @@ const Chat: React.FC = () => {
           Delete Session
         </Button>
       </div>
-      <Messages chat={chat} isEnded={isEnded} />
+      <Messages id={userId} chat={chat} isEnded={isEnded} />
       {isEnded ? <Button onClick={resetChat}>Reset Session</Button> : <SendMessage loading={chat.loading} userId={userId} />}
     </div>
   );

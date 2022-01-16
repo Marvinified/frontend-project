@@ -16,8 +16,6 @@ const SendMessage: React.FC<SendMessageProps> = ({ userId, loading }) => {
 
   const handleOnSubmit = React.useCallback(async () => {
     if (userId && message && !loading) {
-      // eslint-disable-next-line no-console
-      console.log('sendMessage', userId, message);
       await sendMessage(userId, message);
       setMessage('');
     }
