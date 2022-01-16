@@ -19,14 +19,15 @@ const ChatProvider: React.FC = ({ children }) => {
   const history = useHistory();
 
   React.useEffect(() => {
-    const chats: ChatsStateType = JSON.parse(localStorage.getItem('chats') || '{}');
-    if (chats) {
-      // eslint-disable-next-line no-console
-      console.log('chats', chats);
-      dispatch({
-        type: 'INIT',
-        payload: { id: 'all', chats },
-      });
+    const cache = localStorage.getItem('chats');
+    if (cache) {
+      const chats: ChatsStateType = JSON.parse(cache);
+      if (chats) {
+        dispatch({
+          type: 'INIT',
+          payload: { id: 'all', chats },
+        });
+      }
     }
   }, []);
 
@@ -35,6 +36,8 @@ const ChatProvider: React.FC = ({ children }) => {
       state,
       addNewUser: actions.addNewUser(dispatch, history),
       sendMessage: actions.sendMessage(dispatch),
+      deleteSession: actions.deleteSession(dispatch),
+      resetSession: actions.resetSession(dispatch),
     }),
     [state, dispatch, history]
   );

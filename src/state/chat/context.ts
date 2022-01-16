@@ -7,6 +7,8 @@ const ChatContext = React.createContext<ChatContextType>({
   state: initialState,
   addNewUser: () => null,
   sendMessage: () => null,
+  resetSession: () => null,
+  deleteSession: () => null,
 });
 
 export default ChatContext;

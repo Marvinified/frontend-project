@@ -19,8 +19,11 @@ export type ChatType = {
   messages?: Array<MessageType>;
 };
 
+export type ChatsType = Record<string, ChatType>;
+
 export type ChatsStateType = {
-  [key: string]: ChatType;
+  chats: ChatsType;
+  error: string;
 };
 
 export type PayloadType = {
@@ -30,6 +33,7 @@ export type PayloadType = {
   messages?: Array<MessageType>;
   message?: MessageType;
   chats?: ChatsStateType;
+  error?: string;
 };
 
 export type Action = {
@@ -41,6 +45,8 @@ export type ChatContextType = {
   state: ChatsStateType;
   addNewUser: (username: string) => void;
   sendMessage: (userId: string, message: string) => void;
+  resetSession: (userId: string) => void;
+  deleteSession: (userId: string) => void;
 };
 
 export type DispatchFunction = (dispatch: React.Dispatch<Action>) => (...arg: string[]) => unknown;

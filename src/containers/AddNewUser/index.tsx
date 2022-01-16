@@ -11,7 +11,7 @@ const AddNewUser: React.FC = () => {
   const { addNewUser } = useChat();
 
   const handleOnSubmit = React.useCallback(async () => {
-    await addNewUser(name);
+    addNewUser(name);
     setName('');
   }, [name, addNewUser]);
 

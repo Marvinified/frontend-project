@@ -1,0 +1,8 @@
+.error-message {
+  align-self: center;
+  color: #ff6767;
+  width: fit-content;
+  text-align: center;
+  word-wrap: none;
+  width: 100%;
+}

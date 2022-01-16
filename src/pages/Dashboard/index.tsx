@@ -10,10 +10,12 @@ import Chat from '../../containers/Chat';
 
 const Dashboard: React.FC = () => {
   const { userId } = useParams<{ userId: string }>();
-  const { state } = useChat();
+  const {
+    state: { chats: chatsState = {} },
+  } = useChat();
 
-  const chats = Object.keys(state).map((id) => {
-    const chat = state[id] || { messages: [] };
+  const chats = Object.keys(chatsState).map((id) => {
+    const chat = chatsState[id] || { messages: [] };
     return {
       id,
       name: chat.name,
@@ -30,7 +32,7 @@ const Dashboard: React.FC = () => {
               <div className="avatar">{(name && name[0]) || ''}</div>
               <div className="details">
                 <h5>{name}</h5>
-                <span className="last-messge">{lastMessage?.text}</span>
+                <span className="last-messge">{lastMessage?.text || 'Open chat to view '}</span>
               </div>
             </Link>
           ))
@@ -39,16 +41,6 @@ const Dashboard: React.FC = () => {
             <Empty>No chats yet, add a user to get started!</Empty>
           </div>
         )}
-        {/* <Link to="/chats/jane" className="item">
-          // <div className="avatar">J</div>
-          //{' '}
-          <div className="details">
-            // <h5>Jane Doe</h5>
-            // <span className="last-messge">Bot: Let's send money</span>
-            //{' '}
-          </div>
-          //{' '}
-        </Link> */}
       </div>
 
       <div className="chats-messages">
