@@ -1,4 +1,4 @@
-import { Action, ChatsStateType, MessageDirection } from './types';
+import { Action, ChatsStateType, MessageDirection } from '../../types';
 
 export const ADD_NEW_USER = 'ADD_NEW_USER';
 export const ADD_NEW_MESSAGE = 'ADD_NEW_MESSAGE';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChatType } from 'src/state/chat/types';
+import { ChatType } from 'src/types';
 
 import AudioHandler from '../AudioHandler';
 

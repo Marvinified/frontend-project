@@ -1,7 +1,7 @@
 import './index.css';
 
 import React from 'react';
-import { ChatType } from 'src/state/chat/types';
+import { ChatType } from 'src/types';
 
 type AudioHandleProps = {
   messages: ChatType['messages'];

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { Action, ChatContextType, ChatsStateType, ChatsType } from '../../types';
 import actions from './actions';
 import ChatContext from './context';
 import reducer, { initialState } from './reducer';
-import { Action, ChatContextType, ChatsStateType, ChatsType } from './types';
 
 type ReducerType = (state: ChatsStateType, action: Action) => ChatsStateType;
 const cache = (fun: ReducerType) => (state: ChatsStateType, action: Action) => {

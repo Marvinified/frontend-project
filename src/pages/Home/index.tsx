@@ -3,8 +3,8 @@ import './index.css';
 import React from 'react';
 import { useParams } from 'react-router';
 import ChatList from 'src/components/ChatList';
-import { ChatListItem } from 'src/state/chat/types';
 import useChat from 'src/state/chat/useChat';
+import { ChatListItem } from 'src/types';
 
 const Home: React.FC = () => {
   const { userId } = useParams<{ userId: string }>();

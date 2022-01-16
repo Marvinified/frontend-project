@@ -3,8 +3,8 @@ import { History } from 'history';
 import * as React from 'react';
 import voiceflow from 'src/services/voiceflow';
 
+import { Action, MessageDirection, MessageType } from '../../types';
 import { ADD_NEW_MESSAGE, ADD_NEW_MESSAGES, ADD_NEW_USER, DELETE_SESSION, LOG_ERROR, RESET_SESSION, SET_LOADING } from './reducer';
-import { Action, MessageDirection, MessageType } from './types';
 
 const logError = (dispatch: React.Dispatch<Action>) => (error: string) => {
   dispatch({ type: LOG_ERROR, payload: { id: 'all', error } });
