@@ -7,7 +7,7 @@ export type Route = {
 
 const routes: Route[] = [
   {
-    path: '/chats/:userID?',
+    path: '/chats/:userId?',
     component: Dashboard,
   },
 ];

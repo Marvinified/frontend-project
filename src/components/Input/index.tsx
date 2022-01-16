@@ -2,10 +2,6 @@ import './index.css';
 
 import React from 'react';
 
-export type InputProps = {
-  placeholder?: string;
-};
-
-const Input: React.FC<InputProps> = (props) => <input {...props} />;
+const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => <input {...props} />;
 
 export default Input;

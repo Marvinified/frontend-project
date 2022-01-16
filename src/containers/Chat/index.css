@@ -10,12 +10,17 @@
 .chat > .header {
   width: 100%;
   border-bottom: 0.5px solid #c9c9c9;
-  padding: 1em;
+  padding: 0.5em 1em;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .chat > .header > h4 {
   margin: 0;
+  text-transform: capitalize;
 }
 
 .chat > .messages {
@@ -24,7 +29,9 @@
   padding: 0.5em 0;
   padding: 1em;
   height: 70%;
+  width: 100%;
   box-sizing: border-box;
+  overflow: scroll;
 }
 
 .message {
@@ -40,6 +47,7 @@
 
 .incoming-message {
   border-top-left-radius: 0;
+  align-self: flex-start;
 }
 .outgoing-message {
   background-color: #4e416d;
@@ -56,6 +64,7 @@
   padding: 0.5em 1.5em;
   font-weight: 500;
   font-size: 0.8em;
+  margin-bottom: 1em;
 }
 
 .input-container {

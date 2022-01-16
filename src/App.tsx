@@ -5,19 +5,22 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 
 import Navbar from './components/Navbar';
 import routes from './routes';
+import ChatProvider from './state/chat/provider';
 
 const App: React.FC = () => (
   <div className="app">
-    <Navbar />
     <Router>
-      <Switch>
-        {routes.map(({ path, component: Component }) => (
-          <Route key={path} exact path={path}>
-            <Component />
-          </Route>
-        ))}
-        <Redirect to="/chats" />
-      </Switch>
+      <ChatProvider>
+        <Navbar />
+        <Switch>
+          {routes.map(({ path, component: Component }) => (
+            <Route key={path} exact path={path}>
+              <Component />
+            </Route>
+          ))}
+          <Redirect to="/chats" />
+        </Switch>
+      </ChatProvider>
     </Router>
   </div>
 );
