@@ -42,7 +42,7 @@ const Chat: React.FC = () => {
           </Button>
           <h4> {chat?.name}</h4>
           <Button className="delete-btn" onClick={deleteChat}>
-            Delete Session
+            Delete
           </Button>
         </div>
         {!chat ? (
