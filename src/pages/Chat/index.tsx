@@ -37,7 +37,7 @@ const Chat: React.FC = () => {
     <div className="chats-messages">
       <div className="chat">
         <div className="header">
-          <Button className="back-btn" onClick={history.goBack}>
+          <Button className="back-btn" onClick={() => history.push('/chats')}>
             Back
           </Button>
           <h4> {chat?.name}</h4>
