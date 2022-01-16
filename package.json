@@ -5,6 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "clean": "rimraf build",
+    "build": "yarn run clean & react-scripts build",
     "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -59,7 +60,6 @@
   "bugs": {
     "url": "https://github.com/voiceflow/frontend-project/issues"
   },
-  "homepage": "https://github.com/voiceflow/frontend-project/#readme",
   "browserslist": {
     "production": [
       ">0.2%",
