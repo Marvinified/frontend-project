@@ -41,6 +41,12 @@ export type Action = {
   payload: PayloadType;
 };
 
+export type ChatListItem = {
+  id: string;
+  lastMessage?: MessageType;
+  name?: string;
+};
+
 export type ChatContextType = {
   state: ChatsStateType;
   addNewUser: (username: string) => void;

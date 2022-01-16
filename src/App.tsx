@@ -9,7 +9,7 @@ import routes from './routes';
 import ChatProvider from './state/chat/provider';
 
 const App: React.FC = () => (
-  <div className="app">
+  <div className="app-container">
     <Router>
       <ChatProvider>
         <Navbar />

@@ -1,9 +1,10 @@
 import './index.css';
 
 import React from 'react';
-import { Redirect, useHistory, useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import Button from 'src/components/Button';
-import Messages from 'src/containers/AudioHandler';
+import Empty from 'src/components/Empty';
+import Messages from 'src/containers/Messages';
 import useChat from 'src/state/chat/useChat';
 
 import SendMessage from '../SendMessage';
@@ -29,23 +30,36 @@ const Chat: React.FC = () => {
   }, [resetSession, userId]);
 
   React.useEffect(() => {
-    seIsEnded(chat?.messages ? chat.messages[chat.messages.length - 1].type === 'end' : false);
+    seIsEnded(chat?.messages ? chat?.messages[chat?.messages.length - 1].type === 'end' : false);
   }, [chat]);
 
-  if (!chat) return <Redirect to="/chats" />;
-
   return (
-    <div className="chat">
-      <div className="header">
-        <h4>{chat?.name}</h4>
-        <Button style={{ backgroundColor: '#ff7373' }} onClick={deleteChat}>
-          Delete Session
-        </Button>
+    <div className="chats-messages">
+      <div className="chat">
+        <div className="header">
+          <Button className="back-btn" onClick={history.goBack}>
+            Back
+          </Button>
+          <h4> {chat?.name}</h4>
+          <Button className="delete-btn" onClick={deleteChat}>
+            Delete Session
+          </Button>
+        </div>
+        {!chat ? (
+          <Empty>No chat found</Empty>
+        ) : (
+          <>
+            <Messages id={userId} chat={chat} isEnded={isEnded} />
+            {isEnded ? <Button onClick={resetChat}>Reset Session</Button> : <SendMessage loading={chat?.loading} userId={userId} />}
+          </>
+        )}
       </div>
-      <Messages id={userId} chat={chat} isEnded={isEnded} />
-      {isEnded ? <Button onClick={resetChat}>Reset Session</Button> : <SendMessage loading={chat.loading} userId={userId} />}
     </div>
   );
 };
 
+// const custom = {
+//   backButton: { backgroundColor: '#fff', color: '#505050' },
+//   deleteButton: { backgroundColor: '#ff7373' },
+// };
 export default Chat;
