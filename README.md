@@ -1,13 +1,3 @@
-# Voiceflow Interview Frontend Project 💬
-
-Welcome to Voiceflow's Frontend Project!
-
-Congrats on making it to this part of the interview process. 🥳
-
-The goal of this project is to create a chat client that allows multiple users to interface with a Voiceflow project.
-
-It’ll help you gain a much better understanding of how conversational interfaces work and how Voiceflow plugs into that flow.
-
 ## Setup 📦
 
 Make sure you have [Node.js](https://nodejs.org/) and [yarn](https://yarnpkg.com/) on your computer.
